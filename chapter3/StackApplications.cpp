@@ -19,7 +19,7 @@ int getPrecedence(char c);
 int main() {
     cout << "This program proves 3 of the most common uses for the stack structure, it takes an infix expression, checks for balanced parenthesis,\n"
          << "transform the expression to postfix and evaluate this expression." << endl;
-    const string exp{"(1+2)*(3+(4*5))"};
+    const string exp{"1-2-3"};
 
     if (balancedSymbols(exp)) {
         cout << "Expression \"" << exp << "\" has balanced parenthesis." << endl;
