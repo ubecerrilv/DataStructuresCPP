@@ -29,7 +29,7 @@ int main() {
         {0,-1},
         {1,-1},
     };
-    cout << "This program solves the word puzzle in two different ways" << endl;
+    cout << "This program solves the word puzzle in a very bad way" << endl;
     cout << "=========================================================" << endl;
     cout << "The words are:" << endl;
     for (auto& w : words)
@@ -51,18 +51,18 @@ int main() {
 
 void solve(const vector<string>& words, const vector<vector<char>>& puzzle, const vector<pair<int,int>>& orientations) {
     for (const auto& word : words) {
-        for (int i = 0 ; i < puzzle.size(); ++i) {
-            for (int j = 0 ; j < puzzle[i].size(); ++j) {
-                for (const auto& orientation : orientations) {
+        for (int i = 0 ; i < puzzle.size(); ++i) { // For each row
+            for (int j = 0 ; j < puzzle[i].size(); ++j) { // For each column
+                for (const auto& orientation : orientations) { // For each orientation
                     // Check bounds
-                    int wordLen   = static_cast<int>(word.size());
-                    int puzzleLen = static_cast<int>(puzzle.size());
+                    const int wordLen   = static_cast<int>(word.size());
+                    const int puzzleLen = static_cast<int>(puzzle.size());
 
-                    if (i + orientation.first * (wordLen - 1) < 0 ||
-                        i + orientation.first * wordLen > puzzleLen ||
-                        j + orientation.second * (wordLen - 1) < 0 ||
-                        j + orientation.second * wordLen > puzzleLen)
-                        continue;
+                    if (i + orientation.first * (wordLen - 1) < 0 || // Left bound
+                        i + orientation.first * wordLen > puzzleLen || // Right bound
+                        j + orientation.second * (wordLen - 1) < 0 || // Upper bound
+                        j + orientation.second * wordLen > puzzleLen) // Lower bound
+                        continue; // Go to next orientation
 
                     // Create new possible word
                     string newWord;

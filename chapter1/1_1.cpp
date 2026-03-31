@@ -18,7 +18,7 @@ int main () {
         64, 11, 97, 24, 70, 19, 86, 31, 49, 8,
         60, 27, 75, 12, 99, 40, 68, 22, 84, 6,
         57, 33, 91, 16, 73, 26, 88, 44, 52, 10
-      };
+    };
     const int k = numbers.size()/2;
 
     cout << "This program solves the selection problem in two different ways" << endl;
@@ -45,13 +45,10 @@ int secondSolution( vector<int> numbers, const int k )
     sort( shortenArray.begin(), shortenArray.end(), [](const int a, const int b){return a > b;} );
 
     // Place each next element in its correct spot
-    for( int i = k; i<numbers.size(); ++i )
-    {
-        if( numbers[ i ] > shortenArray[ k - 1 ] )
-        {
+    for( int i = k; i<numbers.size(); ++i ){
+        if( numbers[ i ] > shortenArray[ k - 1 ] ){
             int j = k - 2;
-            while( j>=0 && numbers[ i ] > shortenArray[j] )
-            {
+            while( j>=0 && numbers[ i ] > shortenArray[j] ){
                 shortenArray[j + 1] = shortenArray[j];
                 --j;
             }

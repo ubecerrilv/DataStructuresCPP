@@ -21,6 +21,17 @@ class matrix
         matrix( vector<vector<Object>> && v ) : arr{ std::move( v ) }
         { }
 
+        // Zero parameter constructor
+        matrix() = default;
+
+        // Resize method
+        void resize( int rows, int cols ) {
+            arr.resize( rows );
+            for( auto& row : arr ) {
+                row.resize( cols );
+            }
+        }
+
         // Operator [] overload
         const vector<Object>& operator[]( int row ) const
         { return arr[ row ]; }
